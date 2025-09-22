@@ -22,7 +22,7 @@
 	];
 </script>
 
-<ScrollArea class="w-96 whitespace-nowrap rounded-md border" orientation="horizontal">
+<ScrollArea class="w-96 rounded-md border whitespace-nowrap" orientation="horizontal">
 	<div class="flex w-max space-x-4 p-4">
 		{#each works as artwork (artwork.artist)}
 			<figure class="shrink-0">
@@ -30,14 +30,14 @@
 					<img
 						src={artwork.art}
 						alt="Photo by {artwork.artist}"
-						class="aspect-[3/4] h-fit w-fit object-cover"
+						class="aspect-3/4 h-fit w-fit object-cover"
 						width={300}
 						height={400}
 					/>
 				</div>
-				<figcaption class="text-muted-foreground pt-2 text-xs">
+				<figcaption class="pt-2 text-xs text-muted-foreground">
 					Photo by
-					<span class="text-foreground font-semibold">
+					<span class="font-semibold text-foreground">
 						{artwork.artist}
 					</span>
 				</figcaption>

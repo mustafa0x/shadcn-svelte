@@ -77,7 +77,7 @@
 	>
 		<Select.Trigger
 			size="sm"
-			class="bg-secondary text-secondary-foreground border-secondary justify-start shadow-none"
+			class="justify-start border-secondary bg-secondary text-secondary-foreground shadow-none"
 			id="theme-selector"
 		>
 			<span class="font-medium"> Theme: </span>
@@ -92,7 +92,7 @@
 					<Select.Item
 						value={theme.value}
 						label={theme.name}
-						class="data-[selected]:opacity-50">{theme.name}</Select.Item
+						class="data-selected:opacity-50">{theme.name}</Select.Item
 					>
 				{/each}
 			</Select.Group>
@@ -103,7 +103,7 @@
 					<Select.Item
 						value={theme.value}
 						label={theme.name}
-						class="data-[selected]:opacity-50">{theme.name}</Select.Item
+						class="data-selected:opacity-50">{theme.name}</Select.Item
 					>
 				{/each}
 			</Select.Group>

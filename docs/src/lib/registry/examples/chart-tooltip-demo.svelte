@@ -3,17 +3,17 @@
 </script>
 
 <div
-	class="text-foreground grid aspect-video w-full max-w-md justify-center md:grid-cols-2 [&>div]:relative [&>div]:flex [&>div]:h-[137px] [&>div]:w-[224px] [&>div]:items-center [&>div]:justify-center [&>div]:p-4"
+	class="grid aspect-video w-full max-w-md justify-center text-foreground md:grid-cols-2 [&>div]:relative [&>div]:flex [&>div]:h-[137px] [&>div]:w-[224px] [&>div]:items-center [&>div]:justify-center [&>div]:p-4"
 >
 	<div>
-		<div class="absolute left-[-35px] top-[45px] z-10 text-sm font-medium">Label</div>
+		<div class="absolute top-[45px] left-[-35px] z-10 text-sm font-medium">Label</div>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 193 40"
 			width="50"
 			height="12"
 			fill="none"
-			class="absolute left-[5px] top-[50px] z-10"
+			class="absolute top-[50px] left-[5px] z-10"
 		>
 			<g clip-path="url(#a)">
 				<path
@@ -33,18 +33,18 @@
 				{ name: "Desktop", value: 186, color: "var(--chart-1)" },
 				{ name: "Mobile", value: 80, color: "var(--chart-2)" },
 			]}
-			class="w-[8rem]"
+			class="w-32"
 		/>
 	</div>
 	<div class="items-end">
-		<div class="absolute left-[122px] top-[0px] z-10 text-sm font-medium">Name</div>
+		<div class="absolute top-[0px] left-[122px] z-10 text-sm font-medium">Name</div>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="35"
 			height="42"
 			fill="none"
 			viewBox="0 0 122 148"
-			class="absolute left-[85px] top-[10px] z-10 -scale-x-100"
+			class="absolute top-[10px] left-[85px] z-10 -scale-x-100"
 		>
 			<g clip-path="url(#ab)">
 				<path
@@ -66,25 +66,25 @@
 				{ name: "Firefox", value: 1000, color: "var(--chart-4)" },
 			]}
 			indicator="dashed"
-			class="w-[8rem]"
+			class="w-32"
 		/>
 	</div>
-	<div class="!hidden md:!flex">
+	<div class="hidden! md:flex!">
 		<TooltipDemo
 			label="Page Views"
 			payload={[{ name: "Desktop", value: 12486, color: "var(--chart-3)" }]}
-			class="w-[9rem]"
+			class="w-36"
 			indicator="line"
 		/>
 	</div>
-	<div class="!items-start !justify-start">
-		<div class="absolute left-[50px] top-[60px] z-10 text-sm font-medium">Indicator</div>
+	<div class="items-start! justify-start!">
+		<div class="absolute top-[60px] left-[50px] z-10 text-sm font-medium">Indicator</div>
 		<TooltipDemo
 			label="Browser"
 			hideLabel
 			payload={[{ name: "Chrome", value: 1286, color: "var(--chart-1)" }]}
 			indicator="dot"
-			class="w-[8rem]"
+			class="w-32"
 		/>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@
 			height="34"
 			fill="none"
 			viewBox="0 0 75 175"
-			class="absolute left-[30px] top-[38px] z-10 rotate-[-40deg]"
+			class="absolute top-[38px] left-[30px] z-10 rotate-[-40deg]"
 		>
 			<g clip-path="url(#abc)">
 				<path

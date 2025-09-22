@@ -117,7 +117,7 @@
 	{@const Content = content}
 	<kbd
 		class={cn(
-			"bg-background text-muted-foreground pointer-events-none flex h-5 select-none items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium [&_svg:not([class*='size-'])]:size-3",
+			"pointer-events-none flex h-5 items-center justify-center gap-1 rounded border bg-background px-1 font-sans text-[0.7rem] font-medium text-muted-foreground select-none [&_svg:not([class*='size-'])]:size-3",
 			className
 		)}
 		{...restProps}
@@ -137,13 +137,13 @@
 				{...props}
 				variant="secondary"
 				class={cn(
-					"bg-surface text-surface-foreground/60 dark:bg-card relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
+					"relative h-8 w-full justify-start bg-surface pl-2.5 font-normal text-surface-foreground/60 shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64 dark:bg-card"
 				)}
 				onclick={() => (open = true)}
 			>
 				<span class="hidden lg:inline-flex">Search documentation...</span>
 				<span class="inline-flex lg:hidden">Search...</span>
-				<div class="absolute right-1.5 top-1.5 hidden gap-1 sm:flex">
+				<div class="absolute top-1.5 right-1.5 hidden gap-1 sm:flex">
 					{@render CommandMenuKbd({ content: isMac.current ? "⌘" : "Ctrl" })}
 					{@render CommandMenuKbd({ content: "K", class: "aspect-square" })}
 				</div>
@@ -159,17 +159,17 @@
 			<Dialog.Description>Search for a command to run...</Dialog.Description>
 		</Dialog.Header>
 		<Command.Root
-			class="**:data-[slot=command-input-wrapper]:bg-input/50 **:data-[slot=command-input-wrapper]:border-input **:data-[slot=command-input]:!h-9 **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:!h-9 **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border rounded-none bg-transparent"
+			class="rounded-none bg-transparent **:data-[slot=command-input]:h-9! **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:h-9! **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border **:data-[slot=command-input-wrapper]:border-input **:data-[slot=command-input-wrapper]:bg-input/50"
 		>
 			<Command.Input placeholder="Search documentation..." />
-			<Command.List class="no-scrollbar min-h-80 scroll-pb-1.5 scroll-pt-2">
-				<Command.Empty class="text-muted-foreground py-12 text-center text-sm">
+			<Command.List class="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5">
+				<Command.Empty class="py-12 text-center text-sm text-muted-foreground">
 					No results found.
 				</Command.Empty>
 				{#each sidebarNavItems as group (group.title)}
 					<Command.Group
 						heading={group.title}
-						class="!p-0 [&_[data-command-group-heading]]:scroll-mt-16 [&_[data-command-group-heading]]:!p-3 [&_[data-command-group-heading]]:!pb-1"
+						class="p-0! **:data-command-group-heading:scroll-mt-16 **:data-command-group-heading:p-3! **:data-command-group-heading:pb-1!"
 					>
 						{#each group.items as item, i (i)}
 							{@const isComponent = item.href?.includes("/components/") ?? false}
@@ -192,7 +192,7 @@
 							>
 								{#if isComponent}
 									<div
-										class="border-muted-foreground aspect-square size-4 rounded-full border border-dashed"
+										class="aspect-square size-4 rounded-full border border-dashed border-muted-foreground"
 									></div>
 								{:else}
 									<ArrowRightIcon />
@@ -206,7 +206,7 @@
 					<Command.Group
 						heading={colorPalette.name.charAt(0).toUpperCase() +
 							colorPalette.name.slice(1)}
-						class="!p-0 [&_[data-command-group-heading]]:!p-3"
+						class="p-0! **:data-command-group-heading:p-3!"
 					>
 						{#each colorPalette.colors as color (color.hex)}
 							<CommandMenuItem
@@ -218,12 +218,12 @@
 								}}
 							>
 								<div
-									class="border-ghost bg-(--color) aspect-square size-4 rounded-sm after:rounded-sm"
+									class="border-ghost aspect-square size-4 rounded-sm bg-(--color) after:rounded-sm"
 									style="--color: {color.oklch};"
 								></div>
 								{color.class}
 								<span
-									class="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums"
+									class="ml-auto font-mono text-xs font-normal text-muted-foreground tabular-nums"
 								>
 									{color.oklch}
 								</span>
@@ -232,10 +232,7 @@
 					</Command.Group>
 				{/each}
 				{#if blocks?.length}
-					<Command.Group
-						heading="Blocks"
-						class="!p-0 [&_[data-command-group-heading]]:!p-3"
-					>
+					<Command.Group heading="Blocks" class="p-0! **:data-command-group-heading:p-3!">
 						{#each blocks as block (block.name)}
 							<CommandMenuItem
 								value={block.name}
@@ -255,7 +252,7 @@
 								<SquareDashedIcon />
 								{block.description}
 								<span
-									class="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums"
+									class="ml-auto font-mono text-xs font-normal text-muted-foreground tabular-nums"
 								>
 									{block.name}
 								</span>
@@ -266,7 +263,7 @@
 			</Command.List>
 		</Command.Root>
 		<div
-			class="text-muted-foreground absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium dark:border-t-neutral-700 dark:bg-neutral-800"
+			class="absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium text-muted-foreground dark:border-t-neutral-700 dark:bg-neutral-800"
 		>
 			<div class="flex items-center gap-2">
 				{@render CommandMenuKbd({ content: CornerDownLeftIcon })}
@@ -278,7 +275,7 @@
 				{/if}
 			</div>
 			{#if copyPayload}
-				<Separator orientation="vertical" class="!h-4" />
+				<Separator orientation="vertical" class="h-4!" />
 				<div class="flex items-center gap-1">
 					{@render CommandMenuKbd({ content: isMac.current ? "⌘" : "Ctrl" })}
 					{@render CommandMenuKbd({ content: "C" })}
